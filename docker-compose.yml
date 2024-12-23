@@ -1,0 +1,42 @@
+version: "3.8"  # Versión de Docker Compose
+
+services:
+  app:
+    build:
+      context: .  # Contexto de construcción, el directorio actual
+      dockerfile: dockerfile  # Dockerfile para construir la imagen
+    ports:
+      - "3000:3000"  # Mapeo de puertos: host:contenedor
+    env_file:
+      - .env  # Cargar variables de entorno desde un archivo .env
+    depends_on:
+      - db  # Dependencia del servicio de base de datos
+    networks:
+      - app-network  # Conexión a la misma red que la base de datos
+    volumes:
+      - .:/app  # Mapeo de volúmenes: host:contenedor
+    stdin_open: true  # Mantener stdin abierto
+    tty: true  # Asignar una terminal pseudo-TTY
+
+  db:
+    image: postgres:17  # Imagen de PostgreSQL
+    container_name: postgres_db  # Nombre del contenedor
+    restart: always  # Reiniciar siempre el contenedor en caso de fallo
+    environment:
+      # Variables de entorno para configurar PostgreSQL
+      - POSTGRES_USER=${POSTGRES_USER}  # Usuario de PostgreSQL desde .env
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}  # Contraseña de PostgreSQL desde .env
+      - POSTGRES_DB=${POSTGRES_DB}  # Nombre de la base de datos desde .env
+    ports:
+      - "5432:5432"  # Mapeo de puertos: host:contenedor
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Mapeo de volúmenes: host:contenedor
+    networks:
+      - app-network  # Conexión a la misma red que la aplicación
+
+volumes:
+  postgres_data:  # Definición del volumen para datos de PostgreSQL
+
+networks:
+  app-network:
+    driver: bridge  # Definición de la red compartida entre los contenedores
