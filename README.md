@@ -50,7 +50,7 @@ Conexión a la aplicación:
     docker exec -it sistema-gestion-docker-app-1 bash
     ```
 
-3. Agrega al usuario con su contraseña a la base de datos. Luego con esos datos inicia sesión en el login de la aplicación:
+4. Agrega al usuario con su contraseña a la base de datos. Luego con esos datos inicia sesión en el login de la aplicación:
 
     ```bash
     node addUserEjemplo.js
@@ -79,11 +79,11 @@ agregarUsuario('pruebaadmin', 'pruebaadmin'); // Reemplaza con el nombre de usua
 ```
 >
 
-4. Accede a la aplicación en `http://localhost:puerto` (reemplaza `puerto` con el puerto configurado en tu `docker-compose.yml`) ó directamente si no cambiaste nada: `http://localhost:3000/login.html`(En este caso está en el puerto 3000).
+5. Accede a la aplicación en `http://localhost:puerto` (reemplaza `puerto` con el puerto configurado en tu `docker-compose.yml`) ó directamente si no cambiaste nada: `http://localhost:3000/login.html`(En este caso está en el puerto 3000).
 
-5. Listo!!. Empieza a usar la aplicación agregando compras, ventas, reportes, etc. 🚀⭐
+6. Listo!!. Empieza a usar la aplicación agregando compras, ventas, reportes, etc. 🚀⭐
 
-6. Para parar el contenedor. Ejemplo:
+7. Para parar el contenedor. Ejemplo:
 Reemplaza con los 3 primeros dígitos del ID de tu contenedor.
 
     ```bash
