@@ -1,7 +1,6 @@
 # Archivos y carpetas de sistema
 .DS_Store
 Thumbs.db
-
 package-lock.json
 
 # Archivos de entorno
