@@ -25,7 +25,7 @@ Asegúrate de configurar correctamente las variables de entorno en el archivo `.
 ## Instalación
 1. Clona el repositorio:
     ```bash
-    git clone https://github.com/tu-usuario/sistema-gestion-Docker.git
+    git clone https://github.com/daniCentG/sistema-gestion-Docker.git
     ```
 2. Navega al directorio del proyecto:
     ```bash
